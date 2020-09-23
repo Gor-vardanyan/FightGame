@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game!</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main> 
+           <!-- Primera pantalla de press start -->
+        <section class="seccion_visible" id="fase_1" >
+            <div class="general general1">
+
+                <button onclick="cambia_pantalla(2)">Start</button>
+            </div>
+        </section>
+            <!-- parilla de personajes -->
+        <section class="seccion_visible" id="fase_2" style="display: none;">
+            <div class="general general2">
+                <!-- seleción de personajes -->
+                    <div id="carrusel_personajes" >
+                        <label for="personaje_ryu">
+
+                            <input id="personaje_ryu" type="radio" name="personaje_seleccionado">
+                            
+                            <div id="personaje_1">
+                                <img class="pictogram" src="img/ryu/posicion_base.gif">
+                                <div class="personaje_stats"></div>
+                            </div>
+                        
+                        </label> 
+                        
+                        <label for="personaje_ken">
+
+                            <input id="personaje_ken" type="radio" name="personaje_seleccionado">
+                            
+                            <div  id="personaje_2">
+                                <img class="pictogram" src="img/ken/posicion_base.gif">
+                                <div class="personaje_stats"></div>
+                            </div>
+                        
+                        </label>
+                    </div>
+                    <div class="atributos"></div>
+                <button onclick="cambia_pantalla(3)"> Fight</button>
+            </div>
+        </section>
+            <!-- Enfrentamiento -->
+        <section class="seccion_visible" id="fase_3" style="display: none;" >
+            <div class="general general3">
+                <button onclick="cambia_pantalla(1)"> Restart</button>
+            </div>
+        </section>
+        
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
