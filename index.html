@@ -18,31 +18,72 @@
             <!-- parilla de personajes -->
         <section class="seccion_visible" id="fase_2" style="display: none;">
             <div class="general general2">
-                <!-- seleción de personajes -->
-                    <div id="carrusel_personajes" >
-                        <label for="personaje_ryu">
+                <div class="lista_personajes">
+                    <div class="selccionar">
+                        <label for="personaje_ryu">    
+                            <img src="img/ryu/selection_pic.png" alt="">
+                        </label>
+                    </div>
+                    <div class="selccionar">
+                        <label for="personaje_ryu"> 
+                            <img src="img/ryu/selection_pic.png" alt="">
+                        </label>
+                    </div>
+                    <div class="selccionar">
+                        <label for="personaje_ken"> 
+                            <img src="img/ryu/selection_pic.png" alt="">
+                        </label>
+                    </div>
+                    <div class="selccionar">
+                        <label for="personaje_ken"> 
+                            <img src="img/ryu/selection_pic.png" alt="">
+                        </label>
+                    </div>
+                </div>
 
-                            <input id="personaje_ryu" type="radio" name="personaje_seleccionado">
+                <!-- seleción de personajes -->
+                <div id="content_info">
+                    <div class="atributos">
+                    <h2>Player</h2>
+                    <p>Health: 100</p>
+                    </p>Mana: 50</p>
+                    </p>Power: 50</p>
+                    </p>Magic: 50</p>
+                    </div>
+
+                    <div id="carrusel_personajes" >
+                        
+
+                            <input id="personaje_ryu" type="checkbox" name="personaje_seleccionado">
                             
                             <div id="personaje_1">
                                 <img class="pictogram" src="img/ryu/posicion_base.gif">
                                 <div class="personaje_stats"></div>
                             </div>
                         
-                        </label> 
                         
-                        <label for="personaje_ken">
+                        
 
-                            <input id="personaje_ken" type="radio" name="personaje_seleccionado">
+                            <input id="personaje_ken" type="checkbox" name="personaje_seleccionado">
                             
                             <div  id="personaje_2">
                                 <img class="pictogram" src="img/ken/posicion_base.gif">
                                 <div class="personaje_stats"></div>
                             </div>
                         
-                        </label>
+                        
                     </div>
-                    <div class="atributos"></div>
+                    
+                    <!-- Mostrar los atributos de cada jugador -->
+
+                    <div class="atributos">
+                        <h2>CPU</h2>
+                        <p>Health: 100</p>
+                        </p>Mana: 50</p>
+                        </p>Power: 50</p>
+                        </p>Magic: 50</p>
+                    </div>
+                </div>    
                 <button onclick="cambia_pantalla(3)"> Fight</button>
             </div>
         </section>
