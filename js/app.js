@@ -20,33 +20,33 @@ const cambia_pantalla = (valor) =>{
     array_fases = array_fases.filter( val => !fasedestino.includes(val));
  
     if(valor == 2){
-        let sleccionado_off = document.querySelector('[name=personaje_seleccionado]:checked');
-        let sleccionado_off2 = document.querySelector('[name=personaje_seleccionado2]:checked');
-
+        
         const selector= ()=>{
-            if(document.getElementById(seleccionado_off === null || seleccionado_off2 === null)){
-                document.getElementById("first_selector").style.display="none";
             
-            }
-            
-            if(fijar_cpu){
-                document.getElementById("second_selector").style.display="flex";
+          let select = document.getElementById("first_selector").style.display="none";
+            document.getElementById("second_selector").style.display="flex";
 
-    
+            if(){
+                document.getElementById("second_selector").style.display="none";
+
             }
         }
-        let fijar_player = document.getElementById("fijar_player").addEventListener("click",selector);
-        let fijar_cpu = document.getElementById("fijar_cpu").addEventListener("click",selector);
-           
-        if(fasedestino == "fase_3"){
-            
-            if(sleccionado_off === null && sleccionado_off2 === null){
-                return false;
-                    
-            }
-        }
+        document.getElementById("fijar_player").addEventListener("click", selector) ;
+        document.getElementById("fijar_cpu").addEventListener("click", selector);
+
     }    
 
+    let sleccionado_off = document.querySelector('[name=personaje_seleccionado]:checked');
+    let sleccionado_off2 = document.querySelector('[name=personaje_seleccionado2]:checked');
+
+               
+    if(fasedestino == "fase_3"){
+            
+        if(sleccionado_off === null && sleccionado_off2 === null){
+            return false;
+                
+        }
+    }
     document.getElementById(fasedestino).style.display ="flex";
 
     for(let pantalla of array_fases){
