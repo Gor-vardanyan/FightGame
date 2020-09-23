@@ -18,26 +18,36 @@
             <!-- parilla de personajes -->
         <section class="seccion_visible" id="fase_2" style="display: none;">
             <div class="general general2">
+                <h2>Choose a Player</h2>
+
                 <div class="lista_personajes">
-                    <div class="selccionar">
-                        <label for="personaje_ryu">    
-                            <img src="img/ryu/selection_pic.png" alt="">
-                        </label>
+                    <div id="first_selector">
+
+                        <div class="selccionar">
+                            <label for="personaje_ryu">    
+                                <img src="img/ryu/selection_pic.png" alt="">
+                            </label>
+                        </div>
+                        <div class="selccionar">
+                            <label for="personaje_ken_x"> 
+                                <img src="img/ken/selection_pic.png" alt="">
+                            </label>
+                        </div>
+
                     </div>
-                    <div class="selccionar">
-                        <label for="personaje_ryu"> 
-                            <img src="img/ryu/selection_pic.png" alt="">
-                        </label>
-                    </div>
-                    <div class="selccionar">
-                        <label for="personaje_ken"> 
-                            <img src="img/ryu/selection_pic.png" alt="">
-                        </label>
-                    </div>
-                    <div class="selccionar">
-                        <label for="personaje_ken"> 
-                            <img src="img/ryu/selection_pic.png" alt="">
-                        </label>
+                    <div id="second_selector">
+
+                        <div class="selccionar">
+                            <label for="personaje_ryu_x"> 
+                                <img src="img/ryu/selection_pic.png" alt="">
+                            </label>
+                        </div>
+                        <div class="selccionar">
+                            <label for="personaje_ken"> 
+                                <img src="img/ken/selection_pic.png" alt="">
+                            </label>
+                        </div>
+
                     </div>
                 </div>
 
@@ -49,28 +59,43 @@
                     </p>Mana: 50</p>
                     </p>Power: 50</p>
                     </p>Magic: 50</p>
+                    <button id="fijar_player">fijar</button>
+
                     </div>
 
                     <div id="carrusel_personajes" >
                         
 
-                            <input id="personaje_ryu" type="checkbox" name="personaje_seleccionado">
+                            <input id="personaje_ryu" type="radio" name="personaje_seleccionado">
                             
                             <div id="personaje_1">
                                 <img class="pictogram" src="img/ryu/posicion_base.gif">
                                 <div class="personaje_stats"></div>
                             </div>
-                        
-                        
-                        
+                           
+                            <input id="personaje_ken_x" type="radio" name="personaje_seleccionado">
+                            
+                            <div  id="personaje_2_x">
+                                <img class="pictogram" src="img/ken/posicion_base.gif">
+                                <div class="personaje_stats"></div>
+                            </div>
 
-                            <input id="personaje_ken" type="checkbox" name="personaje_seleccionado">
+                            <input id="personaje_ryu_x" type="radio" name="personaje_seleccionado2">
+                            
+                            <div id="personaje_1_x">
+                                <img class="pictogram" src="img/ryu/posicion_base.gif">
+                                <div class="personaje_stats"></div>
+                            </div>
+
+
+                            <input id="personaje_ken" type="radio" name="personaje_seleccionado2">
                             
                             <div  id="personaje_2">
                                 <img class="pictogram" src="img/ken/posicion_base.gif">
                                 <div class="personaje_stats"></div>
                             </div>
-                        
+                           
+
                         
                     </div>
                     
@@ -82,6 +107,7 @@
                         </p>Mana: 50</p>
                         </p>Power: 50</p>
                         </p>Magic: 50</p>
+                        <button id="fijar_cpu">fijar</button>
                     </div>
                 </div>    
                 <button onclick="cambia_pantalla(3)"> Fight</button>

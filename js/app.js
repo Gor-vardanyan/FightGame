@@ -4,6 +4,7 @@ let pantalla1 = document.getElementById("fase_1");
 let pantalla2 = document.getElementById("fase_2");
 let pantalla3 = document.getElementById("fase_3");
 */
+
 /* Creamos variable const con funcion cambia pantalla y le ponemos que recoja un valor*/
 const cambia_pantalla = (valor) =>{
   
@@ -17,14 +18,34 @@ const cambia_pantalla = (valor) =>{
     // El val que le damos existe en el array entonces el resulta en true, pero queremos que sea diferencia de true ósea que le asignamos contrario de resultado true
     // Al decirle que este val sea false lo extirpa del nuevo arrayfondos.filter dejándolo con el resto de contenido del nuevo array y lo asignamos a reescribir arrayfondos.
     array_fases = array_fases.filter( val => !fasedestino.includes(val));
-
-    if(fasedestino == "fase_3"){
+ 
+    if(valor == 2){
         let sleccionado_off = document.querySelector('[name=personaje_seleccionado]:checked');
-        
-        if(sleccionado_off === null){
-            return false;
-        }   
-    }
+        let sleccionado_off2 = document.querySelector('[name=personaje_seleccionado2]:checked');
+
+        const selector= ()=>{
+            if(document.getElementById(seleccionado_off === null || seleccionado_off2 === null)){
+                document.getElementById("first_selector").style.display="none";
+            
+            }
+            
+            if(fijar_cpu){
+                document.getElementById("second_selector").style.display="flex";
+
+    
+            }
+        }
+        let fijar_player = document.getElementById("fijar_player").addEventListener("click",selector);
+        let fijar_cpu = document.getElementById("fijar_cpu").addEventListener("click",selector);
+           
+        if(fasedestino == "fase_3"){
+            
+            if(sleccionado_off === null && sleccionado_off2 === null){
+                return false;
+                    
+            }
+        }
+    }    
 
     document.getElementById(fasedestino).style.display ="flex";
 
@@ -33,6 +54,8 @@ const cambia_pantalla = (valor) =>{
     }
 }
  
+
+
 
 
 class personaje {

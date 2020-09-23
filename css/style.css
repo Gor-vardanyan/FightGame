@@ -43,6 +43,7 @@ main{
     display: flex;
     background-color: blue;
     justify-content: space-around;
+    margin-bottom: 1em;
 }
 .selccionar{
     background-color: cornflowerblue;
@@ -50,6 +51,12 @@ main{
     width: 10vw;
     display: flex;
     justify-content: center;
+}
+.selccionar > label{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
 }
 #content_info{
     display: flex;
@@ -61,6 +68,7 @@ main{
     justify-content: center;
     width: 40vw;
     height: 50vh;
+    background-color: white;
 }
 .atributos{
     display: flex;
@@ -76,20 +84,35 @@ main{
     width: 100%;
     height: 100%;
     display: none;
+    justify-content: flex-start;
 }
+
 #personaje_2{
     width: 100%;
     height: 100%;
-    transform: scaleX(-1);
     display: none;
 }
+
+#personaje_1_x{
+    width: 100%;
+    height: 100%;
+    display: none;
+    transform: scaleX(-1);
+}
+
+#personaje_2_x{
+    width: 100%;
+    height: 100%;
+    display: none;
+    transform: scaleX(-1);
+    justify-content: flex-start;
+
+}
+
 button{
     margin: 1em;
 }
-label{
-    height: 100%;
-    width: 50%;
-}
+
 .pictogram{
     height: 100%;
     width: auto;
@@ -98,12 +121,38 @@ label{
 #personaje_ryu{
     display: none;
 }
-#personaje_ryu:checked + #personaje_1{
-    display: block;
-}
+
 #personaje_ken{
     display: none;
 }
+
+#personaje_ryu_x{
+    display: none;
+}
+#personaje_ken_x{
+    display: none;
+}
+
+#personaje_ryu:checked + #personaje_1{
+    display: flex;
+    justify-content: flex-start;
+
+}
+#personaje_ryu_x:checked + #personaje_1_x{
+    display: block;
+}
+
 #personaje_ken:checked + #personaje_2{
     display: block;
+}
+#personaje_ken_x:checked + #personaje_2_x{
+    display: flex;
+    justify-content: flex-end;
+}
+
+#first_selector{
+    display: flex;
+}
+#second_selector{
+    display: none;
 }
