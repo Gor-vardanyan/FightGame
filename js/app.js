@@ -1,52 +1,60 @@
 
-/*
-let pantalla1 = document.getElementById("fase_1");
-let pantalla2 = document.getElementById("fase_2");
-let pantalla3 = document.getElementById("fase_3");
-*/
+                     // seltor de personajes
 
-/* Creamos variable const con funcion cambia pantalla y le ponemos que recoja un valor*/
+const selector = (num) =>{
+    let first_selector = document.getElementById("first_selector");
+    let second_selector = document.getElementById("second_selector");
+
+    if(num == 1){
+
+        first_selector.style.display="none";
+        second_selector.style.display="flex";
+
+        
+        document.getElementById('player_picked').style.backgroundColor='gray';
+        document.getElementById('fijar_player').style.backgroundColor='gray';
+    }
+ 
+    if(num == 2){
+        second_selector.style.display="none";
+        document.getElementById('cpu_picked').style.backgroundColor='gray';
+        document.getElementById('fijar_cpu').style.backgroundColor='gray';
+
+        if(first_selector.style.display === "none" && second_selector.style.display === "none"){
+            document.getElementById('fight_start').style.visibility="visible";
+        }       
+    }
+}
+
+                     // fijación de personaje 
+
+const fix = (num)=>{
+
+    switch(num){
+         case 1:
+            document.getElementById('fijar_player').style.display="block";
+            document.getElementById('player_picked').style.visibility="visible"; 
+            
+             break;
+
+         case 2: 
+             document.getElementById('fijar_cpu').style.display="block";
+             document.getElementById('cpu_picked').style.visibility="visible"; 
+             break;
+     }
+}
+
+                     // cambiar de pantallas
+
 const cambia_pantalla = (valor) =>{
   
-    /* Creamos array de strings con los id de elementos en html*/
     let array_fases = ["fase_1","fase_2","fase_3"];
 
-    /* Creamos variable que concatena el valor que recibe la funcion cambia pantalla y la junta al string para targetear al id de html*/
     let fasedestino = "fase_" + valor;
 
-    // El array_fases recibe a el mismo con el filtro de una funcion que recoje un parametro val 
-    // El val que le damos existe en el array entonces el resulta en true, pero queremos que sea diferencia de true ósea que le asignamos contrario de resultado true
-    // Al decirle que este val sea false lo extirpa del nuevo arrayfondos.filter dejándolo con el resto de contenido del nuevo array y lo asignamos a reescribir arrayfondos.
-    array_fases = array_fases.filter( val => !fasedestino.includes(val));
- 
-    if(valor == 2){
-        
-        const selector= ()=>{
-            
-          let select = document.getElementById("first_selector").style.display="none";
-            document.getElementById("second_selector").style.display="flex";
-
-            if(){
-                document.getElementById("second_selector").style.display="none";
-
-            }
-        }
-        document.getElementById("fijar_player").addEventListener("click", selector) ;
-        document.getElementById("fijar_cpu").addEventListener("click", selector);
-
-    }    
-
-    let sleccionado_off = document.querySelector('[name=personaje_seleccionado]:checked');
-    let sleccionado_off2 = document.querySelector('[name=personaje_seleccionado2]:checked');
-
-               
-    if(fasedestino == "fase_3"){
-            
-        if(sleccionado_off === null && sleccionado_off2 === null){
-            return false;
-                
-        }
-    }
+    array_fases = array_fases.filter( val => !fasedestino.includes(val)); 
+    
+    
     document.getElementById(fasedestino).style.display ="flex";
 
     for(let pantalla of array_fases){
@@ -54,11 +62,9 @@ const cambia_pantalla = (valor) =>{
     }
 }
  
+                         // class de personajes
 
-
-
-
-class personaje {
+class personajes {
     constructor (nombre){
         this.img_directory = "img/" + nombre;
         this.max_health = 100;
