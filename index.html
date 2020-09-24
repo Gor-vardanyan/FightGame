@@ -8,14 +8,12 @@
 </head>
 <body>
     <main> 
-        <audio autoplay loop>
-            <source src="img/StreetFighter.mp3" type="audio/mpeg">
-        </audio>
+        
            <!-- Primera pantalla de press start -->
         <section class="seccion_visible" id="fase_1" >
             <div class="general general1">
 
-                <button onclick="cambia_pantalla(2)">Start</button>
+                <button id="start" onclick="cambia_pantalla(2)">START</button>
             </div>
         </section>
             <!-- parilla de personajes -->
@@ -57,12 +55,12 @@
                 <!-- seleción de personajes -->
                 <div id="content_info">
                     <div id="player_picked" class="atributos">
-                    <h2>Player</h2>
+                    <h2>PLAYER</h2>
                     <p>Health: 100</p>
                     <p>Mana: 50</p>
                     <p>Power: 50</p>
                     <p>Magic: 50</p>
-                    <button onclick = "selector(1)" id="fijar_player">Pick</button>
+                    <button onclick = "selector(1)" id="fijar_player">PICK</button>
 
                     </div>
 
@@ -110,7 +108,7 @@
                         <p>Mana: 50</p>
                         <p>Power: 50</p>
                         <p>Magic: 50</p>
-                        <button onclick="selector(2)" id="fijar_cpu">Pick</button>
+                        <button onclick="selector(2)" id="fijar_cpu">PICK</button>
                     </div>
                 </div>    
                 <button id="fight_start" onclick="cambia_pantalla(3)">FIGHT!!</button>
@@ -122,7 +120,12 @@
                 <button onclick="location.reload()">Restart</button>
             </div>
         </section>
-        
+        <div class="audio">
+        <h5>Play me!</h5> 
+        <audio controls loop>
+            <source src="img/StreetFighter.mp3" type="audio/mpeg">
+        </audio>
+        </div>
     </main>
 
     <script src="js/app.js"></script>

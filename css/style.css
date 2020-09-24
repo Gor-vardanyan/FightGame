@@ -16,6 +16,28 @@ main{
     align-items: center;
     
 }
+.audio{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 3em;
+    top: 0vh;
+    right: 40vw;
+    width: 20vw;
+    padding: 0.2em;
+    background-image: linear-gradient(45deg, #bbbbbb00, #000000);
+    background-color: #354395;
+    border: solid 0.13em;
+    border-radius: 2em;
+    color: black;
+}
+audio{
+    outline: none;
+    margin: 1em;
+}
+h5{
+    width: 10em;
+}
 .general{
     display: flex;
     flex-direction: column;
@@ -64,6 +86,7 @@ main{
     display: none;
     transition: 1s;
 }
+
 #fijar_cpu{
     display: none;
     transition: 1s;
@@ -71,15 +94,30 @@ main{
 
 #player_picked{
     visibility: hidden;
+    border-radius: 1em 0em 0em 1em;
+    background-image: linear-gradient(-90deg, #000000a3, #00000042, transparent);
+    background-color: #99262b;
+
 }
 
 #cpu_picked{
     visibility: hidden;
+    border-radius: 0em 1em 1em 0em;
+    background-image: linear-gradient(90deg, #000000a3, #00000042, transparent););
+    background-color: #104088;
 }
 
 #content_info{
     display: flex;
     justify-content: space-between;
+}
+
+#start{
+    width: 4.4vw;
+    height: 8vh;
+    background-color: red;
+    border-radius: 4em;
+    color: white;
 }
 
 #carrusel_personajes{
@@ -89,6 +127,8 @@ main{
     height: 50vh;
     background-color: white;
     background-image: url(/img/1_1_1_1.jpg);
+    box-shadow: 0 0 13px 6px #f95656;
+    z-index: 1;
 }
 .atributos{
     box-sizing: border-box;
@@ -132,10 +172,10 @@ main{
 }
 
 button{
-    height: 2em;
+    height: 3em;
     margin: 1em;
-    border-radius: 1em;
-    width: 10vw;
+    border-radius: 2em;
+    width: 6vw;
     outline: none;
 }
 #fight_start{
