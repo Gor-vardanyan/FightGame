@@ -10,17 +10,21 @@ const selector = (num) =>{
         first_selector.style.display="none";
         second_selector.style.display="flex";
 
-        
+        //contenido first selector actua al click
         document.getElementById('player_picked').style.backgroundColor='gray';
         document.getElementById('fijar_player').style.backgroundColor='gray';
     }
  
     if(num == 2){
         second_selector.style.display="none";
+        
+        //contenido second selector actua al click
         document.getElementById('cpu_picked').style.backgroundColor='gray';
         document.getElementById('fijar_cpu').style.backgroundColor='gray';
-
+       
+        //si first y second selector están con display none accede
         if(first_selector.style.display === "none" && second_selector.style.display === "none"){
+            //aparece el botón para pasar a la fase3
             document.getElementById('fight_start').style.visibility="visible";
         }       
     }
@@ -66,7 +70,7 @@ const cambia_pantalla = (valor) =>{
 
 class personajes {
     constructor (nombre){
-        this.img_directory = "img/" + nombre;
+        this.img_directory = "img/" + nombre + "posicion_base.gif";
         this.max_health = 100;
         this.health = 100;
         this.mana = 50;
