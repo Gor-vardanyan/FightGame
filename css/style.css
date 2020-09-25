@@ -31,13 +31,28 @@ main{
     border-radius: 2em;
     color: black;
 }
+
 audio{
     outline: none;
     margin: 1em;
 }
+
 h5{
     width: 10em;
 }
+
+.fondo_pagina1{
+    z-index: 0;
+    position: absolute;
+    border-radius: 1em;
+}
+
+.fondo_combate{
+    z-index: 0;
+    position: absolute;
+    border-radius: 1em;
+}
+
 .general{
     display: flex;
     flex-direction: column;
@@ -45,14 +60,11 @@ h5{
     align-items: center;
     width: 85vw;
     height: 85vh;
-    background-color: blue;
     border-radius: 1em;
     box-shadow: 0 13px 17px -7px black;
+    z-index: 1;
 }
-.general1{
-    background-color: green;
-    background-image: url(/img/street-fighter-characters-i30393.jpg);   
-}
+
 .general2{
     background-color: brown;   
 }
@@ -97,7 +109,7 @@ h5{
     border-radius: 1em 0em 0em 1em;
     background-image: linear-gradient(-90deg, #000000a3, #00000042, transparent);
     background-color: #99262b;
-
+    margin-right: -1em;
 }
 
 #cpu_picked{
@@ -105,6 +117,8 @@ h5{
     border-radius: 0em 1em 1em 0em;
     background-image: linear-gradient(90deg, #000000a3, #00000042, transparent);
     background-color: #104088;
+    margin-left: -1em;
+
 }
 
 #content_info{
@@ -125,8 +139,7 @@ h5{
     justify-content: center;
     width: 40vw;
     height: 50vh;
-    background-color: white;
-    background-image: url(/img/1_1_1_1.jpg);
+    border-radius: 1em;
     box-shadow: 0 0 13px 6px #f95656;
     z-index: 1;
 }
@@ -147,12 +160,14 @@ h5{
     height: 100%;
     display: none;
     justify-content: flex-start;
+    z-index: 1;
 }
 
 #personaje_2{
     width: 100%;
     height: 100%;
     display: none;
+    z-index: 1;
 }
 
 #personaje_1_x{
@@ -160,6 +175,7 @@ h5{
     height: 100%;
     display: none;
     transform: scaleX(-1);
+    z-index: 1;
 }
 
 #personaje_2_x{
@@ -168,7 +184,7 @@ h5{
     display: none;
     transform: scaleX(-1);
     justify-content: flex-start;
-
+    z-index: 1;
 }
 
 button{
@@ -178,6 +194,7 @@ button{
     width: 6vw;
     outline: none;
 }
+
 #fight_start{
     visibility: hidden;
 }
@@ -232,7 +249,6 @@ button{
     width: 40vw;
     height: 50vh;
     background-color: white;
-    background-image: url(/img/1_1_1_1.jpg);
     box-shadow: 0 0 13px 6px #f95656;
     z-index: 1;
 }
