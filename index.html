@@ -26,12 +26,12 @@
                     <div id="first_selector">
 
                         <div class="selccionar">
-                            <label onclick="fix(1)" for="personaje_ryu">    
+                            <label onclick="player_selector('ryu',1)" for="personaje_ryu">    
                                 <img src="img/ryu/selection_pic.png" alt="">
                             </label>
                         </div>
                         <div class="selccionar">
-                            <label onclick="fix(1)" for="personaje_ken_x"> 
+                            <label onclick="player_selector('ken',1)" for="personaje_ken_x"> 
                                 <img src="img/ken/selection_pic.png" alt="">
                             </label>
                         </div>
@@ -40,12 +40,12 @@
                     <div id="second_selector">
 
                         <div class="selccionar">
-                            <label onclick="fix(2)" for="personaje_ryu_x"> 
+                            <label onclick="player_selector('ryu',2)" for="personaje_ryu_x"> 
                                 <img src="img/ryu/selection_pic.png" alt="">
                             </label>
                         </div>
                         <div class="selccionar">
-                            <label onclick="fix(2)" for="personaje_ken"> 
+                            <label onclick="player_selector('ken',2)" for="personaje_ken"> 
                                 <img src="img/ken/selection_pic.png" alt="">
                             </label>
                         </div>
@@ -56,18 +56,13 @@
                 <!-- seleción de personajes -->
                 <div id="content_info">
                     <div id="player_picked" class="atributos">
-                    <h2>PLAYER</h2>
-                    <p>Health: 100</p>
-                    <p>Mana: 50</p>
-                    <p>Power: 50</p>
-                    <p>Magic: 50</p>
-                    <button onclick = "selector(1)" id="fijar_player">PICK</button>
-
+                        <h2>PLAYER</h2>
+                        <span id="first_player_stats"></span>
+                        <button onclick = "selector(1)" id="fijar_player">PICK</button>
                     </div>
 
                     <div id="carrusel_personajes" >
                         
-
                             <input id="personaje_ryu" type="radio" name="personaje_seleccionado">
                             
                             <div id="personaje_1">
@@ -104,10 +99,7 @@
 
                     <div id="cpu_picked" class="atributos">
                         <h2>CPU</h2>
-                        <p>Health: 100</p>
-                        <p>Mana: 50</p>
-                        <p>Power: 50</p>
-                        <p>Magic: 50</p>
+                        <span id="second_player_stats"></span>
                         <button onclick="selector(2)" id="fijar_cpu">PICK</button>
                     </div>
                 </div>    
@@ -118,18 +110,18 @@
             <!-- Enfrentamiento -->
         <section class="seccion_visible" id="fase_3" style="display: none;" >
             <div class="general general3">
+               
                 <div id="stadium" >
                                             
                     <div id="user1">
-                        <img class="pictogram" src="img/ryu/posicion_base.gif">
-                        <div class="personaje_stats"></div>
+
                     </div>
                                        
                     <div  id="PC">
                         <img class="pictogram" src="img/ken/posicion_base.gif">
                         <div class="personaje_stats"></div>
                     </div>
-
+                
                 </div>
 
                 
