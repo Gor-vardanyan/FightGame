@@ -109,7 +109,8 @@ h5{
     border-radius: 1em 0em 0em 1em;
     background-image: linear-gradient(-90deg, #000000a3, #00000042, transparent);
     background-color: #99262b;
-    margin-right: -1em;
+    display: flex;
+    flex-direction: row;
 }
 
 #cpu_picked{
@@ -117,7 +118,8 @@ h5{
     border-radius: 0em 1em 1em 0em;
     background-image: linear-gradient(90deg, #000000a3, #00000042, transparent);
     background-color: #104088;
-    margin-left: -1em;
+    display: flex;
+    flex-direction: row;
 }
 
 #content_info{
@@ -133,10 +135,10 @@ h5{
     color: white;
 }
 
-#carrusel_personajes{
+.carrusel_personajes{
     display: flex;
-    justify-content: center;
-    width: 40vw;
+    justify-content: space-between;  
+    width: 80vw;
     height: 50vh;
     border-radius: 1em;
     box-shadow: 0 0 13px 6px #f95656;
@@ -149,41 +151,12 @@ h5{
     align-items: center;
     justify-content: center;
     height: 50vh;
-    width: 20vw;
+    width: 21vw;
     border: solid 0.4em;
-    background-color: darkcyan;
+    border-radius: 1em;
 }
-
-#personaje_1{
-    width: 100%;
-    height: 100%;
-    display: none;
-    justify-content: flex-start;
-    z-index: 1;
-}
-
-#personaje_2{
-    width: 100%;
-    height: 100%;
-    display: none;
-    z-index: 1;
-}
-
-#personaje_1_x{
-    width: 100%;
-    height: 100%;
-    display: none;
-    transform: scaleX(-1);
-    z-index: 1;
-}
-
-#personaje_2_x{
-    width: 100%;
-    height: 100%;
-    display: none;
-    transform: scaleX(-1);
-    justify-content: flex-start;
-    z-index: 1;
+#cpu_picked > img {
+    order: -1;
 }
 
 button{
@@ -198,41 +171,12 @@ button{
     visibility: hidden;
 }
 
+
+
 .pictogram{
     height: 100%;
     width: auto;
     margin-left: 2.1em;
-}
-#personaje_ryu{
-    display: none;
-}
-
-#personaje_ken{
-    display: none;
-}
-
-#personaje_ryu_x{
-    display: none;
-}
-#personaje_ken_x{
-    display: none;
-}
-
-#personaje_ryu:checked + #personaje_1{
-    display: flex;
-    justify-content: flex-start;
-
-}
-#personaje_ryu_x:checked + #personaje_1_x{
-    display: block;
-}
-
-#personaje_ken:checked + #personaje_2{
-    display: block;
-}
-#personaje_ken_x:checked + #personaje_2_x{
-    display: flex;
-    justify-content: flex-end;
 }
 
 #first_selector{
@@ -250,4 +194,8 @@ button{
     height: 90%;
     background-color: white;
     box-shadow: 0 0 13px 6px #f95656;
+}
+
+.rotate{
+    transform: scaleX(-1);
 }

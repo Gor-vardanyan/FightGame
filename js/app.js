@@ -12,7 +12,7 @@ const selector = (num) =>{
 
         document.getElementById('user1').innerHTML = player_1.renderPlayer();
         //contenido first selector actua al click
-        document.getElementById('player_picked').style.backgroundColor='gray';
+        document.getElementById('player_picked').style.backgroundColor='red';
         document.getElementById('fijar_player').style.backgroundColor='gray';
     }
  
@@ -20,7 +20,7 @@ const selector = (num) =>{
         second_selector.style.display="none";
         
         //contenido second selector actua al click
-        document.getElementById('cpu_picked').style.backgroundColor='gray';
+        document.getElementById('cpu_picked').style.backgroundColor='blue';
         document.getElementById('fijar_cpu').style.backgroundColor='gray';
         document.getElementById('PC').innerHTML = player_2.renderPlayer();
         
@@ -35,24 +35,26 @@ const selector = (num) =>{
                 //player selector
 let player_1 = {};
 let player_2 = {};
+let player_picked = document.getElementById('player_picked');
+let cpu_picked = document.getElementById('cpu_picked');
 
 const player_selector = (name,num)=>{
 
     switch(num){
         case 1:
-            player_1 = new personajes(name,1);
+            player_1 = new personajes(name);
             console.log(`${name} player selecionado`);
+            player_picked.innerHTML = player_1.renderStats("first","player",1);
+            player_picked.style.visibility="visible"; 
             document.getElementById('fijar_player').style.display="block";
-            document.getElementById('player_picked').style.visibility="visible"; 
-            document.getElementById('first_player_stats').innerHTML = player_1.renderStats();
             break;
 
         case 2: 
-            player_2 = new personajes(name,2);
+            player_2 = new personajes(name);
             console.log(`${name} cpu selecionado`);
+            cpu_picked.innerHTML = player_2.renderStats("second","cpu",2,"rotate");
+            cpu_picked.style.visibility="visible"; 
             document.getElementById('fijar_cpu').style.display="block";
-            document.getElementById('cpu_picked').style.visibility="visible"; 
-            document.getElementById('second_player_stats').innerHTML = player_2.renderStats();
             break;   
     }
 }
@@ -79,10 +81,9 @@ const cambia_pantalla = (valor) =>{
                 //class de personajes
 
 class personajes {
-    constructor (nombre,rotate){
+    constructor (nombre){
         this.name = nombre;
-        this.img_directory = "img/" + nombre + "/posicion_base"+ rotate +".gif";
-        this.img_directoryRotate = "img/" + nombre + "/posicion_base2.gif";
+        this.img_directory = "img/" + nombre + "/posicion_base.gif";
         this.max_health = 100;
         this.health = 100;
         this.power = 60;
@@ -100,14 +101,18 @@ class personajes {
         return (this.health*this.max_health)/100;
     }
     
-    renderStats(){
-        return `<h2>${this.name.toUpperCase()}</h2>
+    renderStats(first,id,num,clase = null){
+        return `<div id=${first}_player_stats" class="atributos">
+                <h2>PLAYER ${num}</h2>
+                <h2>${this.name.toUpperCase()}</h2>
                 <p>Health: ${this.health}</p>
-                <p>Power: ${this.power}</p>`;
+                <p>Power: ${this.power}</p>
+                <button onclick = "selector(${num})" id="fijar_${id}">PICK</button></div>
+                <img class="${clase}" src="${this.img_directory}">`;
     }
     renderPlayer(){
         return `<img src="${this.img_directory}">
-                <p>Name: ${this.name}</p>
+                <p>Name: ${this.name.toUpperCase()}</p>
                 <p>Health: ${this.health}</p>`;
     }
 }

@@ -55,53 +55,27 @@
 
                 <!-- seleción de personajes -->
                 <div id="content_info">
-                    <div id="player_picked" class="atributos">
-                        <h2>PLAYER</h2>
-                        <span id="first_player_stats"></span>
-                        <button onclick = "selector(1)" id="fijar_player">PICK</button>
+                    
+                    <div> 
+                        <input hidden type="radio" name="personaje_seleccionado">
+                        <input hidden type="radio" name="personaje_seleccionado">
+                        <input hidden type="radio" name="personaje_seleccionado2">
+                        <input hidden type="radio" name="personaje_seleccionado2">
                     </div>
 
-                    <div id="carrusel_personajes" >
-                        
-                            <input id="personaje_ryu" type="radio" name="personaje_seleccionado">
-                            
-                            <div id="personaje_1">
-                                <img class="pictogram" src="img/ryu/posicion_base.gif">
-                                <div class="personaje_stats"></div>
-                            </div>
-                           
-                            <input  id="personaje_ken_x" type="radio" name="personaje_seleccionado">
-                            
-                            <div  id="personaje_2_x">
-                                <img class="pictogram" src="img/ken/posicion_base.gif">
-                                <div class="personaje_stats"></div>
-                            </div>
+                    <!-- Mostrar los atributos de jugador -->
 
-                            <input id="personaje_ryu_x" type="radio" name="personaje_seleccionado2">
-                            
-                            <div id="personaje_1_x">
-                                <img class="pictogram" src="img/ryu/posicion_base.gif">
-                                <div class="personaje_stats"></div>
-                            </div>
+                    <div class="carrusel_personajes" >
+                    <div id="player_picked"></div>
+                    
 
+                    
 
-                            <input id="personaje_ken" type="radio" name="personaje_seleccionado2">
-                            
-                            <div  id="personaje_2">
-                                <img class="pictogram" src="img/ken/posicion_base.gif">
-                                <div class="personaje_stats"></div>
-                            </div>
-                            <img class="fondo_combate" src="img/1_1_1_1.jpg" alt="">
+                    <!-- Mostrar los atributos de cada cpu -->
 
+                    <div id="cpu_picked">
                     </div>
-
-                    <!-- Mostrar los atributos de cada jugador -->
-
-                    <div id="cpu_picked" class="atributos">
-                        <h2>CPU</h2>
-                        <span id="second_player_stats"></span>
-                        <button onclick="selector(2)" id="fijar_cpu">PICK</button>
-                    </div>
+                </div>
                 </div>    
                 <button id="fight_start" onclick="cambia_pantalla(3)">FIGHT!!</button>
             </div>
