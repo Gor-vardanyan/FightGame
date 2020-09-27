@@ -246,7 +246,7 @@ button{
     z-index: -1;
     position: absolute;
     width: 85vw;
-    height: 78vh;
+    height: 76vh;
     top: 55px;
     border-radius: 1em;
 }
@@ -254,4 +254,8 @@ button{
     font-size: 7em;
     align-self: center;
     color: white;
+}
+.botones{
+    height: 3em;
+    width: 11em;
 }
