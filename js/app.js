@@ -9,8 +9,8 @@ const selector = (num) =>{
 
         first_selector.style.display="none";
         second_selector.style.display="flex";
-
-        document.getElementById('user1').innerHTML = player_1.renderPlayer();
+ 
+        document.getElementById('stadium').insertAdjacentHTML('beforeend',player_1.renderPlayer("user1"));
         //contenido first selector actua al click
         document.getElementById('player_picked').style.backgroundColor='red';
         document.getElementById('fijar_player').style.backgroundColor='gray';
@@ -22,7 +22,7 @@ const selector = (num) =>{
         //contenido second selector actua al click
         document.getElementById('cpu_picked').style.backgroundColor='blue';
         document.getElementById('fijar_cpu').style.backgroundColor='gray';
-        document.getElementById('PC').innerHTML = player_2.renderPlayer();
+        document.getElementById('stadium').insertAdjacentHTML('beforeend',player_2.renderPlayer("PC"));
         
         //si first y second selector están con display none accede
         if(first_selector.style.display === "none" && second_selector.style.display === "none"){
@@ -87,6 +87,8 @@ class personajes {
         this.max_health = 100;
         this.health = 100;
         this.power = 60;
+        this.position_x = 0;
+        this.position_y = 0;
     }
 
     addPower(number) {
@@ -100,7 +102,20 @@ class personajes {
     getHealthPercentage(){
         return (this.health*this.max_health)/100;
     }
-    
+    move_right(){
+        this.position_x += 5;
+    }
+    move_left(){
+        this.position_x -= 5;
+    }
+    move_up(){
+
+    }
+    move_bottom(){
+
+    }
+
+
     renderStats(first,id,num,clase = null){
         return `<div id=${first}_player_stats" class="atributos">
                 <h2>PLAYER ${num}</h2>
@@ -110,9 +125,39 @@ class personajes {
                 <button onclick = "selector(${num})" id="fijar_${id}">PICK</button></div>
                 <img class="${clase}" src="${this.img_directory}">`;
     }
-    renderPlayer(){
-        return `<img src="${this.img_directory}">
-                <p>Name: ${this.name.toUpperCase()}</p>
-                <p>Health: ${this.health}</p>`;
+    renderPlayer(target){
+        return `<div style="left:${this.position_x}vw" id="${target}">
+                <img class="charactersize" src="${this.img_directory}">
+                </div>`;
     }
 }
+
+
+document.addEventListener('keypress',(e)=>{
+    switch (e.key){
+    case 'd':
+        player_1.move_right();
+        document.getElementById("user1").remove();
+        document.getElementById('stadium').insertAdjacentHTML('beforeend',player_1.renderPlayer("user1"));
+        break;
+    
+    case 'a':
+        player_1.move_left();
+        document.getElementById("user1").remove();
+        document.getElementById('stadium').insertAdjacentHTML('beforeend',player_1.renderPlayer("user1"));
+        break;
+    
+    case 'l':
+        player_2.move_right();
+        document.getElementById("PC").remove();
+        document.getElementById('stadium').insertAdjacentHTML('beforeend',player_2.renderPlayer("PC"));
+        break;
+    
+    case 'j':
+        player_2.move_left();
+        document.getElementById("PC").remove();
+        document.getElementById('stadium').insertAdjacentHTML('beforeend',player_2.renderPlayer("PC"));
+        break;
+    }
+
+})

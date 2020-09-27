@@ -68,9 +68,6 @@ h5{
 .general2{
     background-color: brown;   
 }
-.general3{
-    background-color: wheat;   
-}
 
 .lista_personajes{
     width: 60vw;
@@ -144,6 +141,7 @@ h5{
     box-shadow: 0 0 13px 6px #f95656;
     z-index: 1;
 }
+
 .atributos{
     box-sizing: border-box;
     display: flex;
@@ -159,6 +157,29 @@ h5{
     order: -1;
 }
 
+#user1{
+    position: absolute;
+    left: 0;
+    height: 300px;
+    width: 170px;
+}
+
+#PC{
+    position: absolute;
+    right: 0;
+    height: 300px;
+    width: 170px;
+}
+
+.charactersize{
+    width: 100%;
+    height: 100%;
+}
+
+#PC > img {
+    transform: scaleX(-1);
+}
+
 button{
     height: 5vh;
     margin: 1em;
@@ -170,8 +191,6 @@ button{
 #fight_start{
     visibility: hidden;
 }
-
-
 
 .pictogram{
     height: 100%;
@@ -187,15 +206,20 @@ button{
 }
 
 #stadium{
+    position: relative;
     display: flex;
-    justify-content: center;
-    width: 100%;
+    align-items: flex-end;
+    width: 1200px;
     border-radius: 1em 1em 0em 0em;
     height: 90%;
     background-color: white;
-    box-shadow: 0 0 13px 6px #f95656;
+    box-shadow: 0 0 11px 1px #d7dee6;
 }
 
 .rotate{
     transform: scaleX(-1);
+}
+.info{
+    display: flex;
+    justify-content: space-around;
 }
