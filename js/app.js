@@ -86,8 +86,12 @@ class personajes {
         this.img_directory = "img/" + nombre + "/posicion_base.gif";
         this.max_health = 100;
         this.health = 100;
-        this.power = 60;
+        this.power = 6;
         this.position_x = 0;
+        this.boundries = {
+            min: 0,
+            max: 75
+        }
         this.position_y = 0;
     }
 
@@ -95,19 +99,37 @@ class personajes {
         this.power += parseInt(number);
     }
     
-    getCurrentHealth() {
+    getCurrentHealth(){
         return this.health;
     }
 
     getHealthPercentage(){
         return (this.health*this.max_health)/100;
     }
+
+    getPositionPercentage(){
+       return (this.position_x*100)/this.boundries.max;
+    }
+
+    get_dmg(num){
+        this.health -= num;
+        if((this.health*this.max_health)/100 === 0){
+            playON()
+        }
+    }
+
     move_right(){
-        this.position_x += 5;
+        if(this.position_x < this.boundries.max){
+            this.position_x += 5;
+        }
     }
+
     move_left(){
-        this.position_x -= 5;
+        if(this.position_x > this.boundries.min){
+            this.position_x -= 5;
+        }
     }
+
     move_up(){
 
     }
@@ -126,38 +148,76 @@ class personajes {
                 <img class="${clase}" src="${this.img_directory}">`;
     }
     renderPlayer(target){
-        return `<div style="left:${this.position_x}vw" id="${target}">
+        if(target === "PC"){
+            var direction = "right";
+        }
+        else{
+            var direction = "left";
+        }
+        return `<div style="${direction}:${this.position_x}vw" id="${target}">
                 <img class="charactersize" src="${this.img_directory}">
                 </div>`;
     }
+    renderLife(player){
+        document.getElementById(`${player}_life`).style.width = `${this.getHealthPercentage()}%`;
+    }
+}
+
+const checkRange = (pos_player, pos_cpu) =>{
+    var calc = ((pos_player + pos_cpu) - 100);
+    return ( calc > -15 && calc < 0)
 }
 
 
-document.addEventListener('keypress',(e)=>{
+let gameOn = document.addEventListener('keypress',(e)=>{
     switch (e.key){
     case 'd':
         player_1.move_right();
         document.getElementById("user1").remove();
         document.getElementById('stadium').insertAdjacentHTML('beforeend',player_1.renderPlayer("user1"));
         break;
+
+    case 'h':
+        if(checkRange(player_1.getPositionPercentage(),player_2.getPositionPercentage())){
+            player_1.get_dmg(10);
+            player_1.renderLife("player");
+        }
+        break;
+
+    case 'f':
+        if(checkRange(player_1.getPositionPercentage(),player_2.getPositionPercentage())){
+            player_2.get_dmg(10);
+            player_2.renderLife("PC");
+        }
+        break;
     
     case 'a':
-        player_1.move_left();
         document.getElementById("user1").remove();
+        player_1.move_left();
         document.getElementById('stadium').insertAdjacentHTML('beforeend',player_1.renderPlayer("user1"));
         break;
     
     case 'l':
-        player_2.move_right();
+        player_2.move_left();
         document.getElementById("PC").remove();
         document.getElementById('stadium').insertAdjacentHTML('beforeend',player_2.renderPlayer("PC"));
         break;
     
     case 'j':
-        player_2.move_left();
+        player_2.move_right();
         document.getElementById("PC").remove();
         document.getElementById('stadium').insertAdjacentHTML('beforeend',player_2.renderPlayer("PC"));
         break;
     }
 
 })
+
+
+let playON = ()=>{
+    if(player_1.health > 0){
+      winner = "player 1";
+    }else{
+      winner = "player 2";
+    }
+    document.getElementById('stadium').innerHTML =`<div class="gameOff"> Player ${winner} won!!! </div>`;
+}
