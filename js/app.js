@@ -86,13 +86,14 @@ class personajes {
         this.img_directory = "img/" + nombre + "/posicion_base.gif";
         this.max_health = 100;
         this.health = 100;
-        this.power = 6;
+        this.power = 10;
         this.position_x = 0;
         this.boundries = {
             min: 0,
             max: 75
         }
         this.position_y = 0;
+        this.punch = "img/" + nombre + "/punch_posicion_base.gif";
     }
 
     addPower(number) {
@@ -158,6 +159,18 @@ class personajes {
                 <img class="charactersize" src="${this.img_directory}">
                 </div>`;
     }
+    renderPlayerPunch(target){
+        if(target === "PC"){
+            var direction = "right";
+        }
+        else{
+            var direction = "left";
+        }
+        return `<div style="${direction}:${this.position_x}vw" id="${target}">
+                <img class="charactersize" src="${this.punch}">
+                </div>`;
+    }
+
     renderLife(player){
         document.getElementById(`${player}_life`).style.width = `${this.getHealthPercentage()}%`;
     }
@@ -177,18 +190,31 @@ let gameOn = document.addEventListener('keypress',(e)=>{
         document.getElementById('stadium').insertAdjacentHTML('beforeend',player_1.renderPlayer("user1"));
         break;
 
-    case 'h':
-        if(checkRange(player_1.getPositionPercentage(),player_2.getPositionPercentage())){
-            player_1.get_dmg(10);
-            player_1.renderLife("player");
-        }
+    case 'f':
+        document.getElementById("user1").remove();
+        document.getElementById('stadium').insertAdjacentHTML('beforeend',player_1.renderPlayerPunch("user1"));
+        let timeout_1 = setTimeout(() => {
+            if(checkRange(player_1.getPositionPercentage(),player_2.getPositionPercentage())){
+                player_2.get_dmg(10);
+                player_2.renderLife("PC");
+            }
+            document.getElementById("user1").remove();
+            document.getElementById('stadium').insertAdjacentHTML('beforeend',player_1.renderPlayer("user1"));
+        }, 500);
         break;
 
-    case 'f':
-        if(checkRange(player_1.getPositionPercentage(),player_2.getPositionPercentage())){
-            player_2.get_dmg(10);
-            player_2.renderLife("PC");
-        }
+    case 'h':
+        
+        document.getElementById("PC").remove();
+        document.getElementById('stadium').insertAdjacentHTML('beforeend',player_2.renderPlayerPunch("PC"));
+        let timeout_2 = setTimeout(() => {
+            if(checkRange(player_1.getPositionPercentage(),player_2.getPositionPercentage())){
+                player_1.get_dmg(10);
+                player_1.renderLife("user1");
+            }
+            document.getElementById("PC").remove();
+            document.getElementById('stadium').insertAdjacentHTML('beforeend',player_2.renderPlayer("PC"));
+        }, 500);
         break;
     
     case 'a':
